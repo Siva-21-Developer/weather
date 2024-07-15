@@ -1,38 +1,236 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  color: black;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  overflow: hidden;
+}
+
+header{
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    text-align: center;
+}
+
+main
+{
+    position: relative;
+    width: 400px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.099);
+    backdrop-filter: blur(30px);
+    border-top: 1px solid rgba(255, 255, 255, 0.901);
+    border-right: 1px solid rgba(255, 255, 255, 0.901);
+    border-left: 1px solid rgba(255, 255, 255, 0.400);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.400);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: 1s ease;
+}
+
+.container 
+{
+    position: relative;
+    top: 10px;
+    border-radius: 14px;
+    width: 95%;
+    height: 400px;
+     display: grid;
+     align-items: center;
+     justify-content: space-around;
+     place-items: center;
+    grid-template-columns: 1.2fr 0.7fr;
+    grid-template-rows: 0.3fr 1.3fr 1.4fr;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "Location Location"
+      "Degeree Details"
+      "Degeree Details";
+      overflow: hidden;
+      grid-template-rows: 0.3fr 1.3fr 1.4fr; 
+      gap: 4px 5px; 
+    color: rgb(255, 255, 255);
+  }
+
+  .container .img-cons
+  {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .container .img-cons img
+  {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .container .img-cons::before
+  {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.555)100%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.555) 100%);
+
+  }
+  
+  .Location { 
+    width: 90%;
+    height: 80px;
+    grid-area: Location;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    z-index: 10;
+}
+.Location div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.Location div:nth-child(1)
+{
+    width: 200px;
+}
+  
+  .Degeree {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+    height: 210px; 
+    grid-area: Degeree; 
+}
+
+.Degeree h1
+{
+    position: relative;
+    left: 30px;
+    top: -50px;
+    font-size: 90px;
+}
+
+.Degeree .cel h5{
+    position: relative;
+    left: 50px;
+    top: -20px;
+    font-size: 30px;
+}
+
+.Degeree .cel
+{
+    display: flex;
+}
+
+.Degeree .updown
+{
+    position: absolute;
+    width: 120px;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+  
+  .Details {
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    width: 97%;
+    height: 210px; 
+     grid-area: Details; 
+    }
+    .Details h3
+    {
+        position: relative;
+        top: 30px;
+        letter-spacing: 2px;
+         transform: rotate(-90deg);
+    }
+  
+.content
+{
+    width: 95%;
+    height: 180px;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+}
+.content aside
+{
+    width: 45%;
+    height: 95%;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.content aside .weather
+{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 80%;
+    font-size: 20px;
+    justify-content: start;
+}
+
+.inputcon
+{
+  position: relative;
+  width: 200px;
+  overflow: hidden;
+  right: 0px;
+}
+
+.inputcon input
+{
+  background-color: transparent;
+  outline: none;
+  border: 1px solid whitesmoke;
   color: white;
+  border-radius: 5px;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+@media (max-width:400px) 
+{
+    main
+    {
+        width: 320px;
+    }    
+    h3
+    {
+      font-size: 15px;
+    }
+    .inputcon
+{
+  width: 130px;
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
